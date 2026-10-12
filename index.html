@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mennatullah Abdelnasser — Digital Media Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0E0D12; --card:#17151D; --accent:#C9B6FF; --blush:#F3D3DC; --white:#F6F1EA; --grey:#AAA4B3;
+  --display:'Instrument Serif','Cormorant Garamond',Georgia,serif;
+  --body:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--black);color:var(--white);font-family:var(--body);font-size:17px;line-height:1.65}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--white);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1;margin:0;letter-spacing:-.02em}
+.eyebrow{font-weight:500;color:var(--accent);margin:0 0 14px;font-size:16px}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-weight:500}
+nav a{text-decoration:none;margin-left:26px}
+nav a:first-child{margin-left:0;font-family:var(--display);font-weight:800;font-size:19px;color:var(--accent)}
+nav div a:hover{color:var(--accent)}
+
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end;padding-top:30px}
+.hero .txt{padding-bottom:90px;align-self:center}
+.hero h1{font-size:clamp(46px,8vw,100px);animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 em{display:block;font-style:normal;color:var(--accent)}
+.role{font-size:clamp(19px,2.3vw,23px);margin:26px 0 0;max-width:30em;color:var(--grey)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;font-weight:500;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:var(--accent);color:var(--black)}
+.btn.alt{border:2px solid var(--white);color:var(--white)}
+.panel{background:var(--accent);border-radius:999px 999px 0 0;width:min(100%,440px);justify-self:center;overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-end}
+.panel img{display:block;width:100%;height:auto}
+@keyframes rise{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+.work{background:var(--accent);color:var(--black);padding:90px 0}
+.work h2,.about h2,.contact h2{font-size:clamp(40px,8vw,84px)}
+.work .eyebrow{color:var(--black)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:44px}
+.card{background:var(--black);color:var(--white);border-radius:22px;padding:26px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card span{font-family:var(--display);font-weight:800;color:var(--accent);font-size:22px}
+.card h3{font-size:clamp(28px,3.2vw,36px)}
+
+.about{padding:100px 0}
+.about .intro{font-size:clamp(22px,3vw,30px);line-height:1.4;max-width:30em;margin:26px 0 0;font-family:var(--display);font-weight:500}
+.about .intro b{color:var(--accent);font-weight:800}
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.block{background:var(--card);border-radius:22px;padding:28px}
+.block h3{font-size:24px;color:var(--accent);margin-bottom:16px}
+.block ul{margin:0;padding:0;list-style:none}
+.block li{padding:9px 0;border-top:1px solid #2a2a2a;color:var(--white)}
+.block li:first-child{border-top:0;padding-top:0}
+.block li small{display:block;color:var(--grey);font-size:15px}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tools li{border:0!important;padding:0!important}
+.tools span{display:inline-block;border:1.5px solid var(--accent);color:var(--white);padding:6px 14px;border-radius:999px;font-size:15px}
+
+.contact{background:var(--accent);color:var(--black);padding:90px 0 60px}
+.contact p{max-width:44ch;margin:20px 0 0;font-size:20px}
+.links{display:flex;flex-direction:column;gap:8px;margin-top:30px}
+.links a{font-family:var(--display);font-weight:800;font-size:clamp(22px,4.6vw,44px);letter-spacing:-.02em;text-decoration:none;word-break:break-all;width:fit-content;border-bottom:3px solid var(--black)}
+.links a:hover{color:var(--white);border-color:var(--white)}
+footer{margin-top:64px;font-size:15px}
+
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .hero .txt{padding-bottom:0}
+  .panel{width:min(86%,340px)}
+  .blocks{grid-template-columns:1fr}
+  nav a{margin-left:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero h1{animation:none}
+  .btn,.card{transition:none}
+}
+
+.card.has-img{cursor:pointer;padding:14px 14px 24px}
+.card.has-img span,.card.has-img h3{padding:0 12px}
+.card.has-img span{margin-top:6px}
+.card.has-img h3{margin-top:8px}
+.thumb{flex:1;min-height:170px;border-radius:14px;overflow:hidden;background:#000}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.modal{position:fixed;inset:0;z-index:50;background:var(--black);overflow:auto}
+.modal[hidden]{display:none}
+.mbar{position:sticky;top:0;z-index:2;background:var(--black);display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(18px + env(safe-area-inset-top,0px)) 24px 18px}
+.mbar h2{font-size:clamp(28px,5vw,48px)}
+.close{background:var(--accent);color:var(--black);border:0;border-radius:999px;padding:12px 24px;font:500 16px var(--body);cursor:pointer}
+.mbody{max-width:1000px;margin:0 auto;padding:10px 24px calc(80px + env(safe-area-inset-bottom,0px))}
+.mbody .eyebrow{margin:36px 0 16px}
+.logotile{background:#fff;border-radius:20px;padding:28px;margin-bottom:16px}
+.logotile img{display:block;width:min(100%,360px);height:auto;margin:0 auto}
+.board{display:block;width:100%;height:auto;border-radius:20px}
+.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.posts img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:16px;background:var(--card)}
+.about .intro{font-family:var(--body);font-weight:400;font-size:clamp(18px,2vw,21px);line-height:1.75;max-width:48em;margin:26px 0 0;color:var(--white)}
+.about .intro+.intro{margin-top:18px}
+.about .intro b{color:var(--accent);font-weight:500}
+
+h1,h2,h3{font-weight:400;letter-spacing:-.01em;line-height:.98}
+nav a:first-child{font-weight:400;font-size:24px}
+.hero h1{font-size:clamp(56px,10.5vw,132px)}
+.hero h1 em{font-style:italic}
+.work h2,.about h2,.contact h2{font-size:clamp(46px,9vw,104px)}
+.card span{font-family:var(--body);font-weight:500;font-size:15px}
+.card h3{font-size:clamp(32px,3.6vw,46px)}
+.mbar h2{font-size:clamp(34px,5.5vw,58px)}
+.block h3{font-size:30px}
+.block:nth-child(2) h3{color:var(--blush)}
+.tools li:nth-child(even) span{border-color:var(--blush)}
+.links a{font-weight:400;font-size:clamp(26px,5vw,54px)}
+.contact{background:var(--blush)}
+.contact .links a:hover{background:var(--black);color:var(--blush);border-color:var(--black);border-radius:8px;padding:0 10px}
+.panel{width:100%}
+.pwrap{position:relative;justify-self:center;width:min(100%,440px)}
+.badge{position:absolute;left:-36px;bottom:56px;width:120px;height:120px;border-radius:50%;background:var(--white);animation:spin 20s linear infinite}
+.badge text{font:500 10.5px var(--body);fill:var(--black);letter-spacing:.3px}
+.badge circle{fill:var(--black)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ch{display:inline-block;transition:transform .25s,color .25s}
+.w{display:inline-block;white-space:nowrap}
+.ch:hover{transform:translateY(-.07em) rotate(-4deg);color:var(--white)}
+.hero h1 em .ch:hover{color:var(--white)}
+.marquee{background:var(--white);color:var(--black);overflow:hidden;white-space:nowrap;padding:20px 0}
+.track{display:inline-flex;animation:mq 34s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.half{display:inline-flex;gap:34px;padding-right:34px;font-family:var(--display);font-style:italic;font-size:clamp(28px,4vw,40px);line-height:1.1}
+.half i{font-style:normal;font-size:.7em;align-self:center}
+@keyframes mq{to{transform:translateX(-50%)}}
+.card:not(.has-img){transition:transform .2s,background .25s,color .25s}
+.card:not(.has-img):hover{background:var(--white);color:var(--black)}
+.card:not(.has-img):hover span{color:var(--black)}
+.thumb{position:relative}
+.thumb img{transition:transform .6s}
+.has-img:hover .thumb img{transform:scale(1.06)}
+.thumb::after{content:"View project";position:absolute;left:14px;bottom:14px;background:var(--white);color:var(--black);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:500;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s}
+.has-img:hover .thumb::after,.has-img:focus-visible .thumb::after{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:70}
+.posts img,.board,.logotile img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(14,13,18,.96);display:flex;align-items:center;justify-content:center}
+.lb[hidden]{display:none}
+.lb img{max-width:min(92vw,900px);max-height:82vh;border-radius:14px;object-fit:contain}
+.lb button{position:absolute;background:var(--accent);color:var(--black);border:0;border-radius:999px;font:500 16px var(--body);cursor:pointer}
+.lb-close{top:calc(18px + env(safe-area-inset-top,0px));right:20px;padding:12px 22px}
+.lb-prev,.lb-next{top:50%;margin-top:-24px;width:48px;height:48px;font-size:26px!important;line-height:1}
+.lb-prev{left:14px}.lb-next{right:14px}
+.lb-count{position:absolute;bottom:calc(18px + env(safe-area-inset-bottom,0px));color:var(--grey);font-size:15px}
+@media(max-width:860px){.pwrap{width:min(80%,340px)}.badge{left:-14px;bottom:30px;width:96px;height:96px}}
+@media(prefers-reduced-motion:reduce){.badge,.track{animation:none}.rv{opacity:1;transform:none}.thumb img,.thumb::after,.ch{transition:none}}
+.film{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:20px}.poster{max-width:560px;margin:0 auto}.posts.free,.posts.land{align-items:start}.posts.free{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}.posts.land{grid-template-columns:repeat(auto-fill,minmax(min(440px,100%),1fr))}.posts.free img,.posts.land img{aspect-ratio:auto;height:auto;object-fit:contain}</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
+  <nav>
+    <a href="#top">Mennatullah A.</a>
+    <div><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+  </nav>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="txt">
+      <h1>Mennatullah <em>Abdelnasser</em></h1>
+      <p class="role">Digital media designer working across branding, motion, animation, and visual storytelling.</p>
+      <div class="cta">
+        <a class="btn main" href="#work">View my work</a>
+        <a class="btn alt" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="pwrap"><div class="panel"><img src="images/hero/hero-photo.webp" alt="Portrait of Mennatullah Abdelnasser" width="760" height="760"></div><svg class="badge" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="bc" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#bc" textLength="270" lengthAdjust="spacing">Digital Media Designer • Branding • Motion • </textPath></text><circle cx="60" cy="60" r="7"/></svg></div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track"><div class="half"><span>Branding</span><i>✦</i><span>Motion graphics</span><i>✦</i><span>Animation</span><i>✦</i><span>3D modeling</span><i>✦</i><span>Illustration</span><i>✦</i><span>Video editing</span><i>✦</i><span>Visual storytelling</span><i>✦</i></div><div class="half"><span>Branding</span><i>✦</i><span>Motion graphics</span><i>✦</i><span>Animation</span><i>✦</i><span>3D modeling</span><i>✦</i><span>Illustration</span><i>✦</i><span>Video editing</span><i>✦</i><span>Visual storytelling</span><i>✦</i></div></div></div>
+<main>
+<section class="work" id="work">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio</p>
+    <h2>Selected work</h2>
+    <div class="grid">
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal"><div class="thumb"><img src="images/ko-sushi/cover.jpg" alt="KO Sushi brand identity preview"></div><span>01</span><h3>Ko Sushi</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-momo"><div class="thumb"><img src="images/momo-cafe/cover.jpg" alt="MOMO Café brand identity preview"></div><span>02</span><h3>Momo Cafe</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-mason"><div class="thumb"><img src="images/mason-ksa/cover.jpg" alt="Mason KSA post preview" style="object-position:50% 50%"></div><span>03</span><h3>Mason KSA</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-operopos"><div class="thumb"><img src="images/operopos/cover.jpg" alt="OperoPOS post preview" style="object-position:50% 30%"></div><span>04</span><h3>Operopos</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-satori"><div class="thumb"><img src="images/satori-spa/cover.jpg" alt="Satori post preview" style="object-position:50% 50%"></div><span>05</span><h3>Satori Spa</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-beblon"><div class="thumb"><img src="images/beblon/cover.jpg" alt="Beblon post preview" style="object-position:50% 50%"></div><span>06</span><h3>Beblon</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-veguit"><div class="thumb"><img src="images/veguit/cover.jpg" alt="Veguit brand board preview" style="object-position:50% 45%"></div><span>07</span><h3>Veguit</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-stories"><div class="thumb"><img src="images/children-stories/cover.jpg" alt="Mug shop at night, preview for Children Stories" style="object-position:50% 40%"></div><span>08</span><h3>Children Stories</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-reven"><div class="thumb"><img src="images/reven-toy-shop/cover.jpg" alt="Reven toy shop storefront preview" style="object-position:50% 40%"></div><span>09</span><h3>Reven Toy Shop</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-film"><div class="thumb"><img src="images/experimental-film/cover.jpg" alt="Poster preview for the experimental film Depression" style="object-position:50% 30%"></div><span>10</span><h3>Experimental Film</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-animation"><div class="thumb"><img src="images/animation/cover.jpg" alt="Poster preview for the animated short Depression" style="object-position:50% 58%"></div><span>11</span><h3>Depression Animation</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-flavora"><div class="thumb"><img src="images/flavora-market/cover.jpg" alt="Flavora Market bakery counter preview" style="object-position:50% 50%"></div><span>12</span><h3>Flavora Market</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-egypt"><div class="thumb"><img src="images/ancient-egypt/cover.jpg" alt="Ancient Egypt campaign poster preview" style="object-position:50% 40%"></div><span>13</span><h3>Ancient Egypt</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-game"><div class="thumb"><img src="images/lost-game/cover.jpg" alt="LOST game poster preview" style="object-position:50% 35%"></div><span>14</span><h3>LOST: 3D Game (Maya)</h3></article>
+      <article class="card"><span>15</span><h3>Future Resort (Half Sea)</h3></article>
+      <article class="card has-img" tabindex="0" role="button" aria-haspopup="dialog" data-open="modal-dental"><div class="thumb"><img src="images/dental-posts/cover.jpg" alt="Dental social post preview" style="object-position:50% 40%"></div><span>16</span><h3>Dental Posts</h3></article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <p class="eyebrow">About me</p>
+    <h2>Design with a clear idea.</h2>
+    <p class="intro">I’m a <b>Digital Media graduate</b> with a multidisciplinary creative background in graphic design, visual communication, branding, illustration, motion graphics, video editing, 3D modeling, and animation. My diverse academic and practical experience has equipped me with the ability to transform ideas into impactful visual experiences across different digital platforms.</p>
+    <p class="intro">Passionate about creativity, storytelling, and visual exploration, I combine artistic vision with technical skills to develop meaningful, engaging, and visually compelling work. I’m always eager to explore new techniques, challenge creative boundaries, and bring ideas to life through design and digital media.</p>
+    <div class="blocks">
+      <div class="block">
+        <h3>What I do</h3>
+        <ul>
+          <li>Graphic design and visual communication</li>
+          <li>Branding and illustration</li>
+          <li>Motion graphics and video editing</li>
+          <li>3D modeling and animation</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Education</h3>
+        <ul>
+          <li>Bachelor of Art &amp; Design, Digital Media
+            <small>Egypt-Japan University of Science and Technology (E-JUST), 2022–2026</small></li>
+        </ul>
+        <h3 style="margin-top:28px">Languages</h3>
+        <ul>
+          <li>Arabic, English</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Tools</h3>
+        <ul class="tools">
+          <li><span>Photoshop</span></li><li><span>Illustrator</span></li><li><span>InDesign</span></li>
+          <li><span>Figma</span></li><li><span>After Effects</span></li><li><span>Premiere Pro</span></li>
+          <li><span>Maya</span></li><li><span>Unreal Engine</span></li><li><span>Canva</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--black)">Contact</p>
+    <h2>Let's work together</h2>
+    <p>Have a brand, a project, or an idea? Call or send me a message.</p>
+    <div class="links">
+      <a href="tel:+201068176171">01068176171</a>
+      <a href="mailto:mennanasser20000@gmail.com">mennanasser20000@gmail.com</a>
+    </div>
+    <footer>© 2026 Mennatullah Abdelnasser</footer>
+  </div>
+</section>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle" hidden>
+<div class="mbar"><h2 id="mtitle">Ko Sushi</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Brand identity</p>
+<div class="logotile"><img src="images/ko-sushi/01.jpg" alt="KO Sushi logo"></div>
+<img class="board" src="images/ko-sushi/02.jpg" alt="KO Sushi brand board with colors, typography, and packaging mockups">
+<p class="eyebrow">Social media posts</p>
+<div class="posts"><img src="images/ko-sushi/03.jpg" alt="KO Sushi social post: Current mood sushi" loading="lazy" decoding="async"><img src="images/ko-sushi/04.jpg" alt="KO Sushi social post: Current mood sushi, plate on burgundy" loading="lazy" decoding="async"><img src="images/ko-sushi/05.jpg" alt="KO Sushi social post: Roll into happiness" loading="lazy" decoding="async"><img src="images/ko-sushi/06.jpg" alt="KO Sushi social post: Don’t just scroll, order" loading="lazy" decoding="async"><img src="images/ko-sushi/07.jpg" alt="KO Sushi social post: One perfect piece" loading="lazy" decoding="async"><img src="images/ko-sushi/08.jpg" alt="KO Sushi social post: You ordered the right thing" loading="lazy" decoding="async"><img src="images/ko-sushi/09.jpg" alt="KO Sushi social post: Worth the wait" loading="lazy" decoding="async"><img src="images/ko-sushi/10.jpg" alt="KO Sushi social post: Take a bite" loading="lazy" decoding="async"><img src="images/ko-sushi/11.jpg" alt="KO Sushi social post: A world in one piece" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-momo" role="dialog" aria-modal="true" aria-labelledby="mtitle2" hidden>
+<div class="mbar"><h2 id="mtitle2">Momo Cafe</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Brand identity</p>
+<img class="board" src="images/momo-cafe/01.jpg" alt="MOMO Café brand board with concept, colors, typography, packaging, and storefront">
+<p class="eyebrow">Social media posts</p>
+<div class="posts"><img src="images/momo-cafe/02.jpg" alt="MOMO Café social post: Iced Matcha" loading="lazy" decoding="async"><img src="images/momo-cafe/03.jpg" alt="MOMO Café social post: Brown Sugar Boba" loading="lazy" decoding="async"><img src="images/momo-cafe/04.jpg" alt="MOMO Café social post: Iced Coffee" loading="lazy" decoding="async"><img src="images/momo-cafe/05.jpg" alt="MOMO Café social post: Caramel Macchiato" loading="lazy" decoding="async"><img src="images/momo-cafe/06.jpg" alt="MOMO Café social post: Peach Iced Tea" loading="lazy" decoding="async"><img src="images/momo-cafe/07.jpg" alt="MOMO Café social post: Waffle and Coffee" loading="lazy" decoding="async"><img src="images/momo-cafe/08.jpg" alt="MOMO Café social post: Shake It" loading="lazy" decoding="async"><img src="images/momo-cafe/09.jpg" alt="MOMO Café social post: Brownies and Passion Fruit Frappé" loading="lazy" decoding="async"><img src="images/momo-cafe/10.jpg" alt="MOMO Café social post: Fresh Drinks" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-mason" role="dialog" aria-modal="true" aria-labelledby="mtitle3" hidden>
+<div class="mbar"><h2 id="mtitle3">Mason KSA</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Social media posts</p>
+<div class="posts"><img src="images/mason-ksa/01.jpg" alt="Mason KSA Founding Day post: Our Story, man on horseback" loading="lazy" decoding="async"><img src="images/mason-ksa/02.jpg" alt="Mason KSA Founding Day post: wood panels in the desert with the Saudi flag" loading="lazy" decoding="async"><img src="images/mason-ksa/03.jpg" alt="Mason KSA Founding Day post: kitchen in the desert dunes with the Saudi flag" loading="lazy" decoding="async"><img src="images/mason-ksa/04.jpg" alt="Mason KSA Ramadan offer post: curtains opening to the light" loading="lazy" decoding="async"><img src="images/mason-ksa/05.jpg" alt="Mason KSA Ramadan offer post: smart wardrobe" loading="lazy" decoding="async"><img src="images/mason-ksa/06.jpg" alt="Mason KSA Ramadan offer post: navy kitchen with island" loading="lazy" decoding="async"><img src="images/mason-ksa/07.jpg" alt="Mason KSA Post: wardrobe organization" loading="lazy" decoding="async"><img src="images/mason-ksa/08.jpg" alt="Mason KSA Ramadan offer post: wood material samples" loading="lazy" decoding="async"><img src="images/mason-ksa/09.jpg" alt="Mason KSA Post: smart kitchen design" loading="lazy" decoding="async"><img src="images/mason-ksa/10.jpg" alt="Mason KSA Post: glass wardrobe" loading="lazy" decoding="async"><img src="images/mason-ksa/11.jpg" alt="Mason KSA Ramadan offer post: wooden floor" loading="lazy" decoding="async"><img src="images/mason-ksa/12.jpg" alt="Mason KSA Ramadan Kareem post: iftar table in a navy kitchen" loading="lazy" decoding="async"><img src="images/mason-ksa/13.jpg" alt="Mason KSA Ramadan Kareem post: lantern on a marble island" loading="lazy" decoding="async"><img src="images/mason-ksa/14.jpg" alt="Mason KSA 24-hour sale post: child with roses and his mother" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-dental" role="dialog" aria-modal="true" aria-labelledby="mtitle4" hidden>
+<div class="mbar"><h2 id="mtitle4">Dental Posts</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Social media posts</p>
+<div class="posts"><img src="images/dental-posts/01.jpg" alt="Dental clinic social post: Easy is trap" loading="lazy" decoding="async"><img src="images/dental-posts/02.jpg" alt="Dental clinic social post: Myth vs fact" loading="lazy" decoding="async"><img src="images/dental-posts/03.jpg" alt="Dental clinic social post: They come back" loading="lazy" decoding="async"><img src="images/dental-posts/04.jpg" alt="Dental clinic social post: Diagnose first always" loading="lazy" decoding="async"><img src="images/dental-posts/05.jpg" alt="Dental clinic social post: Treat once, measure twice" loading="lazy" decoding="async"><img src="images/dental-posts/06.jpg" alt="Dental clinic social post: Calm beats loud" loading="lazy" decoding="async"><img src="images/dental-posts/07.jpg" alt="Dental clinic social post: Refer with pride" loading="lazy" decoding="async"><img src="images/dental-posts/08.jpg" alt="Dental clinic social post: See, decide better" loading="lazy" decoding="async"><img src="images/dental-posts/09.jpg" alt="Dental clinic social post: Reflect, improve, repeat" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-operopos" role="dialog" aria-modal="true" aria-labelledby="mtitle5" hidden>
+<div class="mbar"><h2 id="mtitle5">Operopos</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Social media posts</p>
+<div class="posts"><img src="images/operopos/01.jpg" alt="OperoPOS social post: Your POS shouldn’t cost more than your coffee machine" loading="lazy" decoding="async"><img src="images/operopos/02.jpg" alt="OperoPOS social post: Meet free all-in-one POS" loading="lazy" decoding="async"><img src="images/operopos/03.jpg" alt="OperoPOS social post: Online ordering with 0% commission" loading="lazy" decoding="async"><img src="images/operopos/04.jpg" alt="OperoPOS social post: What’s your worst POS contract story" loading="lazy" decoding="async"><img src="images/operopos/05.jpg" alt="OperoPOS social post: All your operations, one platform" loading="lazy" decoding="async"><img src="images/operopos/06.jpg" alt="OperoPOS social post: Spot your most profitable dish" loading="lazy" decoding="async"><img src="images/operopos/07.jpg" alt="OperoPOS social post: Everything you need to run a restaurant" loading="lazy" decoding="async"><img src="images/operopos/08.jpg" alt="OperoPOS social post: Built for the owner who counts every leu and every euro" loading="lazy" decoding="async"><img src="images/operopos/09.jpg" alt="OperoPOS social post: Small restaurants are the backbone of every high street" loading="lazy" decoding="async"><img src="images/operopos/10.jpg" alt="OperoPOS social post: Most POS demos take longer than this" loading="lazy" decoding="async"><img src="images/operopos/11.jpg" alt="OperoPOS social post: Cheap POS, expensive surprises" loading="lazy" decoding="async"><img src="images/operopos/12.jpg" alt="OperoPOS social post: Day 1 of launch" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-beblon" role="dialog" aria-modal="true" aria-labelledby="mtitle6" hidden>
+<div class="mbar"><h2 id="mtitle6">Beblon</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Social media posts</p>
+<div class="posts"><img src="images/beblon/01.jpg" alt="Beblon Founding Day post: wardrobe in front of a mud-brick fort with palms" loading="lazy" decoding="async"><img src="images/beblon/02.jpg" alt="Beblon Founding Day post: Our Story, historic mud-brick walls" loading="lazy" decoding="async"><img src="images/beblon/03.jpg" alt="Beblon Founding Day post: horseman and wardrobe in the desert" loading="lazy" decoding="async"><img src="images/beblon/04.jpg" alt="Beblon Founding Day post: wardrobe in front of a fort and arch" loading="lazy" decoding="async"><img src="images/beblon/05.jpg" alt="Beblon Ramadan Kareem greeting post" loading="lazy" decoding="async"><img src="images/beblon/06.jpg" alt="Beblon Ramadan offer post: up to 40% off glass doors" loading="lazy" decoding="async"><img src="images/beblon/07.jpg" alt="Beblon Post: bedroom wardrobes tailored to your taste" loading="lazy" decoding="async"><img src="images/beblon/08.jpg" alt="Beblon Post: the right wardrobe solves room problems" loading="lazy" decoding="async"><img src="images/beblon/09.jpg" alt="Beblon Post: precise measuring before design" loading="lazy" decoding="async"><img src="images/beblon/10.jpg" alt="Beblon Post: space is about smart use, not size" loading="lazy" decoding="async"><img src="images/beblon/11.jpg" alt="Beblon Post: your wardrobe reflects your world" loading="lazy" decoding="async"><img src="images/beblon/12.jpg" alt="Beblon Post: the right wardrobe catches the eye" loading="lazy" decoding="async"><img src="images/beblon/13.jpg" alt="Beblon Post: color is a feeling, not just a look" loading="lazy" decoding="async"><img src="images/beblon/14.jpg" alt="Beblon Post: the first thing you see should be tidy" loading="lazy" decoding="async"><img src="images/beblon/15.jpg" alt="Beblon Post: built for years, not just today" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-satori" role="dialog" aria-modal="true" aria-labelledby="mtitle7" hidden>
+<div class="mbar"><h2 id="mtitle7">Satori Spa</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Social media posts</p>
+<div class="posts"><img src="images/satori-spa/01.jpg" alt="Satori social post: Love the skin you are in, wooden massage roller" loading="lazy" decoding="async"><img src="images/satori-spa/02.jpg" alt="Satori social post: Glow starts within, facial massage" loading="lazy" decoding="async"><img src="images/satori-spa/03.jpg" alt="Satori social post: The magic behind hot stones" loading="lazy" decoding="async"><img src="images/satori-spa/04.jpg" alt="Satori social post: Performance starts with recovery" loading="lazy" decoding="async"><img src="images/satori-spa/05.jpg" alt="Satori social post: Stress stops here, neck and shoulder massage" loading="lazy" decoding="async"><img src="images/satori-spa/06.jpg" alt="Satori social post: Pregnancy therapy" loading="lazy" decoding="async"><img src="images/satori-spa/07.jpg" alt="Satori social post: Satori philosophy: less rush, more balance" loading="lazy" decoding="async"><img src="images/satori-spa/08.jpg" alt="Satori social post: Nature knows best, foot care" loading="lazy" decoding="async"><img src="images/satori-spa/09.jpg" alt="Satori social post: Feel the difference, not just another appointment" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-film" role="dialog" aria-modal="true" aria-labelledby="mtitle8" hidden>
+<div class="mbar"><h2 id="mtitle8">Experimental Film</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Film</p>
+<video class="film" controls playsinline preload="metadata" poster="images/experimental-film/video-poster.jpg" src="videos/experimental-film/film.mp4" aria-label="Experimental film: Depression"></video>
+<p class="eyebrow">Poster</p>
+<img class="board poster" src="images/experimental-film/poster.jpg" alt="Poster for the experimental film Depression: Breaks you without a sound" loading="lazy" decoding="async">
+<p class="eyebrow">Design board</p>
+<img class="board" src="images/experimental-film/board.jpg" alt="Design board for the Depression poster: mood, color palette, typography, key elements, and alternative compositions" loading="lazy" decoding="async">
+</div></div>
+<div class="modal" id="modal-animation" role="dialog" aria-modal="true" aria-labelledby="mtitle9" hidden>
+<div class="mbar"><h2 id="mtitle9">Depression Animation</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Animation</p>
+<video class="film" controls playsinline preload="metadata" poster="images/animation/video-poster.jpg" src="videos/animation/film.mp4" aria-label="Animated short: Depression"></video>
+<p class="eyebrow">Poster</p>
+<img class="board poster" src="images/animation/poster.jpg" alt="Poster for the animated short Depression: Inside the noise, a whisper saves you" loading="lazy" decoding="async">
+<p class="eyebrow">Design board</p>
+<img class="board" src="images/animation/board.jpg" alt="Design board for the Depression animation: characters, mood, color palette, typography, and poster variations" loading="lazy" decoding="async">
+</div></div>
+<div class="modal" id="modal-game" role="dialog" aria-modal="true" aria-labelledby="mtitle10" hidden>
+<div class="mbar"><h2 id="mtitle10">LOST: 3D Game (Maya)</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Game videos</p>
+<video class="film" controls playsinline preload="metadata" poster="images/lost-game/video-1-poster.jpg" src="videos/lost-game/video-1.mp4" aria-label="LOST game video 1"></video>
+<video class="film" style="margin-top:16px" controls playsinline preload="metadata" poster="images/lost-game/video-2-poster.jpg" src="videos/lost-game/video-2.mp4" aria-label="LOST game video 2"></video>
+<p class="eyebrow">Brand identity</p>
+<img class="board" src="images/lost-game/logo-sketches.jpg" alt="LOST game: pencil sketches of logo ideas: porthole, compass, lantern, and monogram" loading="lazy" decoding="async"><div style="height:16px"></div><img class="board" src="images/lost-game/board.jpg" alt="LOST brand board with logo, colors, typography, and mockups" loading="lazy" decoding="async">
+<p class="eyebrow">Game concept</p>
+<div class="posts free"><img src="images/lost-game/poster.jpg" alt="LOST game: cinematic poster of a ship in a storm" loading="lazy" decoding="async"><img src="images/lost-game/captain-id.jpg" alt="LOST game: character ID card for Captain Khaled Mansour" loading="lazy" decoding="async"><img src="images/lost-game/investigation-board-1.jpg" alt="LOST game: The LOST investigation board" loading="lazy" decoding="async"><img src="images/lost-game/investigation-board-2.jpg" alt="LOST game: The LOST investigation board, final version" loading="lazy" decoding="async"></div>
+<p class="eyebrow">Story and storyboard</p>
+<img class="board" src="images/lost-game/storyboard.jpg" alt="LOST game: storyboard of the game story in nine frames" loading="lazy" decoding="async"><div style="height:16px"></div><img class="board" src="images/lost-game/storytelling-board.jpg" alt="LOST game: environmental storytelling concept board with clues, puzzles, story flow, and mood references" loading="lazy" decoding="async">
+<p class="eyebrow">Environment design</p>
+<img class="board" src="images/lost-game/moodboard.jpg" alt="LOST game environment moodboard: materials, lighting, and navigation" loading="lazy" decoding="async"><div style="height:16px"></div><img class="board" src="images/lost-game/moodboard-2.jpg" alt="LOST game: storage room environment moodboard with key elements, lighting, materials, and references" loading="lazy" decoding="async"><div style="height:16px"></div><img class="board" src="images/lost-game/storage-sketch.jpg" alt="LOST game: pencil sketch of the storage room layout" loading="lazy" decoding="async">
+<div class="posts land" style="margin-top:16px"><img src="images/lost-game/render-final.jpg" alt="LOST game: final textured 3D render of the storage room" loading="lazy" decoding="async"><img src="images/lost-game/storage-render.jpg" alt="LOST game: storage room 3D render" loading="lazy" decoding="async"><img src="images/lost-game/corridor-render.jpg" alt="LOST game: ship corridor 3D render" loading="lazy" decoding="async"><img src="images/lost-game/storage-breakdown.jpg" alt="LOST game: storage room breakdown from render to wireframe" loading="lazy" decoding="async"><img src="images/lost-game/storage-lighting.jpg" alt="LOST game: storage room lighting test" loading="lazy" decoding="async"></div>
+<p class="eyebrow">Modeling and UV mapping</p>
+<img class="board" src="images/lost-game/uv-mapping.jpg" alt="LOST game: UV mapping sheet in Autodesk Maya for the table, hammer, barrel, crate, bucket, and life ring" loading="lazy" decoding="async">
+<p class="eyebrow">Process sheets</p>
+<div class="posts land"><img src="images/lost-game/sheet-corridor.jpg" alt="LOST game: environment modeling process sheet for the corridor" loading="lazy" decoding="async"><img src="images/lost-game/sheet-storage.jpg" alt="LOST game: environment modeling process sheet for the storage room" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-reven" role="dialog" aria-modal="true" aria-labelledby="mtitle11" hidden>
+<div class="mbar"><h2 id="mtitle11">Reven Toy Shop</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Logo animation</p>
+<video class="film" controls playsinline preload="metadata" poster="images/reven-toy-shop/video-1-poster.jpg" src="videos/reven-toy-shop/video-1.mp4" aria-label="Reven logo animation"></video>
+<p class="eyebrow">Story animation</p>
+<video class="film" controls playsinline preload="metadata" poster="images/reven-toy-shop/video-2-poster.jpg" src="videos/reven-toy-shop/video-2.mp4" aria-label="Reven story animation"></video>
+<p class="eyebrow">Brand identity</p>
+<div class="logotile"><img src="images/reven-toy-shop/logo.jpg" alt="Reven logo: a bear-shaped clock" loading="lazy" decoding="async"></div>
+<img class="board" src="images/reven-toy-shop/brand-board-1.jpg" alt="Reven toy shop: brand board with concept, colors, typography, and applications" loading="lazy" decoding="async">
+<div style="height:16px"></div>
+<img class="board" src="images/reven-toy-shop/brand-board-2.jpg" alt="Reven toy shop: brand board with the idea, color palette, typography, and mockups" loading="lazy" decoding="async">
+<p class="eyebrow">Storyboard</p>
+<img class="board" src="images/reven-toy-shop/storyboard.jpg" alt="Reven toy shop: storyboard in nine frames" loading="lazy" decoding="async">
+<p class="eyebrow">Brand world</p>
+<div class="posts land"><img src="images/reven-toy-shop/storefront.jpg" alt="Reven toy shop: storefront at golden hour" loading="lazy" decoding="async"><img src="images/reven-toy-shop/store-interior.jpg" alt="Reven toy shop: store interior with wooden toys and teddy bears" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-veguit" role="dialog" aria-modal="true" aria-labelledby="mtitle12" hidden>
+<div class="mbar"><h2 id="mtitle12">Veguit</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Brand identity: concept 1</p>
+<div class="logotile"><img src="images/veguit/logo-1.jpg" alt="Veguit logo concept 1: a green arch with orange and white segments" loading="lazy" decoding="async"></div>
+<img class="board" src="images/veguit/board-1.jpg" alt="Veguit brand board for concept 1: the logo, colors, typography, and applications" loading="lazy" decoding="async">
+<div style="height:16px"></div>
+<img class="board poster" src="images/veguit/poster-1.jpg" alt="Veguit brand poster for concept 1: logo rationale, color palette, typography, and product mockups" loading="lazy" decoding="async">
+<div style="height:16px"></div><img class="board" src="images/veguit/stationery-1.jpg" alt="Veguit stationery for concept 1: business cards, envelopes, and letterhead with the green and orange arch logo" loading="lazy" decoding="async">
+<p class="eyebrow">Brand identity: concept 2</p>
+<div class="logotile"><img src="images/veguit/logo-2.jpg" alt="Veguit logo concept 2: a V inside a green circle with a serif wordmark" loading="lazy" decoding="async"></div>
+<img class="board" src="images/veguit/board-2.jpg" alt="Veguit brand board for concept 2: logo concept, color palette, typography, and mockups" loading="lazy" decoding="async">
+<div style="height:16px"></div>
+<img class="board poster" src="images/veguit/poster-2.jpg" alt="Veguit brand poster for concept 2: logo, colors, typography, mockups, and applications" loading="lazy" decoding="async">
+<div style="height:16px"></div><img class="board" src="images/veguit/stationery-2.jpg" alt="Veguit stationery for concept 2: letterhead, envelope, and business cards with the green V logo on a marble tray" loading="lazy" decoding="async">
+</div></div>
+<div class="modal" id="modal-stories" role="dialog" aria-modal="true" aria-labelledby="mtitle13" hidden>
+<div class="mbar"><h2 id="mtitle13">Children Stories</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">The Mug Shop</p>
+<div class="posts free"><img src="images/children-stories/mug-shop-1.jpg" alt="The Mug Shop: the mug shop at night under the moon" loading="lazy" decoding="async"><img src="images/children-stories/mug-shop-2.jpg" alt="The Mug Shop, page 1: a small special mug stands out on the shelf" loading="lazy" decoding="async"><img src="images/children-stories/mug-shop-3.jpg" alt="The Mug Shop, page 2: the special mug is bought, then falls and breaks" loading="lazy" decoding="async"><img src="images/children-stories/mug-shop-4.jpg" alt="The Mug Shop, page 3: the broken mug is mended with gold paper" loading="lazy" decoding="async"><img src="images/children-stories/mug-shop-5.jpg" alt="The Mug Shop, page 4: the mended mug beside flowers, with the moral of the story" loading="lazy" decoding="async"></div>
+<p class="eyebrow">Illustrated story</p>
+<div class="posts free"><img src="images/children-stories/illustrated-1.jpg" alt="Illustrated story: a man in a beret above friends sitting by the river at sunset" loading="lazy" decoding="async"><img src="images/children-stories/illustrated-2.jpg" alt="Illustrated story: a lively street with a food cart, beside a quiet room indoors" loading="lazy" decoding="async"><img src="images/children-stories/illustrated-3.jpg" alt="Illustrated story: people at a cafe, and a man helping a boy on the street" loading="lazy" decoding="async"><img src="images/children-stories/illustrated-4.jpg" alt="Illustrated story: four panels from friendship to hurt to laughter by the river" loading="lazy" decoding="async"></div>
+<p class="eyebrow">Van Gogh story animation</p>
+<video class="film" controls playsinline preload="metadata" poster="images/children-stories/video-1-poster.jpg" src="videos/children-stories/video-1.mp4" aria-label="Animated story about Vincent van Gogh"></video>
+</div></div>
+<div class="modal" id="modal-egypt" role="dialog" aria-modal="true" aria-labelledby="mtitle14" hidden>
+<div class="mbar"><h2 id="mtitle14">Ancient Egypt</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Brand identity</p>
+<div class="logotile"><img src="images/ancient-egypt/logo.jpg" alt="Ancient Egypt logo: a lotus-fan shape with an ankh and the tagline Where Legends Begin" loading="lazy" decoding="async"></div>
+<img class="board" src="images/ancient-egypt/board-concept.jpg" alt="Ancient Egypt: brand board with logo concept, color palette, typography, brand elements, and campaign applications" loading="lazy" decoding="async"><div style="height:16px"></div>
+<img class="board poster" src="images/ancient-egypt/identity-sheet.jpg" alt="Ancient Egypt: brand identity sheet with logo construction, inspiration, color palette, typography, and applications" loading="lazy" decoding="async"><div style="height:16px"></div>
+<img class="board" src="images/ancient-egypt/board-palette.jpg" alt="Ancient Egypt: brand board with color palette, typography, and stationery, bag, mug, and badge mockups" loading="lazy" decoding="async"><div style="height:16px"></div>
+<img class="board poster" src="images/ancient-egypt/logo-papyrus.jpg" alt="Ancient Egypt: logo on a papyrus background with hieroglyphs and the Nile" loading="lazy" decoding="async">
+<p class="eyebrow">Stationery</p>
+<img class="board" src="images/ancient-egypt/stationery.jpg" alt="Ancient Egypt: business cards, envelopes, and letterhead" loading="lazy" decoding="async">
+<p class="eyebrow">Campaign posters</p>
+<div class="posts free"><img src="images/ancient-egypt/poster-1.jpg" alt="Ancient Egypt: campaign poster with pyramids, a camel, and birds" loading="lazy" decoding="async"><img src="images/ancient-egypt/poster-2.jpg" alt="Ancient Egypt: campaign poster with a pharaoh statue, the Nile, and pyramids at dusk" loading="lazy" decoding="async"><img src="images/ancient-egypt/poster-3.jpg" alt="Ancient Egypt: campaign poster with a pharaoh statue and pyramids at sunset" loading="lazy" decoding="async"></div>
+<p class="eyebrow">Brochures, catalogs, and tickets</p>
+<div class="posts land"><img src="images/ancient-egypt/brochure-light.jpg" alt="Ancient Egypt: tri-fold brochure, catalog, and tickets in a light sandy design" loading="lazy" decoding="async"><img src="images/ancient-egypt/brochure-navy.jpg" alt="Ancient Egypt: brochure, ticket, and catalog in a navy and gold design" loading="lazy" decoding="async"><img src="images/ancient-egypt/visitor-guide.jpg" alt="Ancient Egypt: visitor guide, catalog, and tickets" loading="lazy" decoding="async"><img src="images/ancient-egypt/museum.jpg" alt="Ancient Egypt: Grand Egyptian Museum brochure, catalog, and admission ticket" loading="lazy" decoding="async"></div>
+</div></div>
+<div class="modal" id="modal-flavora" role="dialog" aria-modal="true" aria-labelledby="mtitle15" hidden>
+<div class="mbar"><h2 id="mtitle15">Flavora Market</h2><button class="close" type="button">Close</button></div>
+<div class="mbody">
+<p class="eyebrow">Concept 1: F monogram</p>
+<div class="logotile"><img src="images/flavora-market/logo-1.jpg" alt="Flavora Market logo concept 1: an F monogram with a wheat stalk" loading="lazy" decoding="async"></div>
+<img class="board" src="images/flavora-market/sheet-1.jpg" alt="Flavora Market: identity sheet for concept 1 with logo, color palette, typography, logo variations, and graphic elements" loading="lazy" decoding="async"><div style="height:16px"></div>
+<img class="board poster" src="images/flavora-market/board-1.jpg" alt="Flavora Market: brand board for concept 1 with the storefront, packaging, and products" loading="lazy" decoding="async">
+<div class="posts land" style="margin-top:16px"><img src="images/flavora-market/storefront-1.jpg" alt="Flavora Market: bakery and supermarket storefront for concept 1" loading="lazy" decoding="async"><img src="images/flavora-market/counter.jpg" alt="Flavora Market: bakery counter with breads and pastries" loading="lazy" decoding="async"><img src="images/flavora-market/packaging.jpg" alt="Flavora Market: packaging: bags, boxes, cups, jars, and wraps" loading="lazy" decoding="async"></div>
+<p class="eyebrow">Concept 1: social posts</p>
+<img class="board poster" src="images/flavora-market/posts-1.jpg" alt="Flavora Market: six social media posts for concept 1" loading="lazy" decoding="async">
+<p class="eyebrow">Concept 2: wordmark</p>
+<div class="logotile"><img src="images/flavora-market/logo-2.jpg" alt="Flavora Market logo concept 2: a wordmark with a wheat stalk in the V" loading="lazy" decoding="async"></div>
+<img class="board" src="images/flavora-market/sheet-2.jpg" alt="Flavora Market: identity sheet for concept 2 with logo, color palette, typography, logo variations, and graphic elements" loading="lazy" decoding="async"><div style="height:16px"></div>
+<img class="board" src="images/flavora-market/board-2.jpg" alt="Flavora Market: full brand board for concept 2 with stationery, packaging, uniform, signage, and price tags" loading="lazy" decoding="async"><div style="height:16px"></div>
+<img class="board poster" src="images/flavora-market/collage.jpg" alt="Flavora Market: brand collage for concept 2 with the storefront, breads, packaging, and tags" loading="lazy" decoding="async">
+<div class="posts land" style="margin-top:16px"><img src="images/flavora-market/storefront-2.jpg" alt="Flavora Market: bakery and supermarket storefront for concept 2" loading="lazy" decoding="async"></div>
+<p class="eyebrow">Concept 2: social posts</p>
+<img class="board" src="images/flavora-market/posts-2.jpg" alt="Flavora Market: six social media posts for concept 2" loading="lazy" decoding="async">
+</div></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+<button class="lb-close" type="button">Close</button>
+<button class="lb-prev" type="button" aria-label="Previous image">&#8249;</button>
+<img alt="">
+<button class="lb-next" type="button" aria-label="Next image">&#8250;</button>
+<div class="lb-count"></div></div>
+<script>
+(function(){
+var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fine=window.matchMedia('(pointer: fine)').matches;
+var last=null,cur=null;
+function openM(m){last=document.activeElement;cur=m;m.hidden=false;document.body.style.overflow='hidden';m.scrollTop=0;m.querySelector('.close').focus();}
+function closeM(){if(!cur)return;cur.querySelectorAll("video").forEach(function(v){v.pause();});cur.hidden=true;document.body.style.overflow='';cur=null;if(last)last.focus();}
+document.querySelectorAll('[data-open]').forEach(function(o){
+var m=document.getElementById(o.getAttribute('data-open'));
+o.addEventListener('click',function(){openM(m);});
+o.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openM(m);}});
+});
+document.querySelectorAll('.modal .close').forEach(function(b){b.addEventListener('click',closeM);});
+var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbc=lb.querySelector('.lb-count'),list=[],idx=0,lbLast=null,tx=0;
+function show(){var im=list[idx];lbi.src=im.src;lbi.alt=im.alt;lbc.textContent=(idx+1)+' / '+list.length;}
+function openL(imgs,i){lbLast=document.activeElement;list=imgs;idx=i;show();lb.hidden=false;lb.querySelector('.lb-close').focus();}
+function closeL(){lb.hidden=true;lbi.removeAttribute('src');if(lbLast)lbLast.focus();}
+function step(d){idx=(idx+d+list.length)%list.length;show();}
+document.querySelectorAll('.modal').forEach(function(m){
+var imgs=[].slice.call(m.querySelectorAll('.posts img,.board,.logotile img'));
+imgs.forEach(function(im,i){im.tabIndex=0;im.addEventListener('click',function(){openL(imgs,i);});im.addEventListener('keydown',function(e){if(e.key==='Enter')openL(imgs,i);});});
+});
+lb.querySelector('.lb-close').addEventListener('click',closeL);
+lb.querySelector('.lb-prev').addEventListener('click',function(){step(-1);});
+lb.querySelector('.lb-next').addEventListener('click',function(){step(1);});
+lb.addEventListener('click',function(e){if(e.target===lb)closeL();});
+lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+lb.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>45)step(d>0?-1:1);},{passive:true});
+document.addEventListener('keydown',function(e){
+if(!lb.hidden){if(e.key==='Escape')closeL();else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1);return;}
+if(e.key==='Escape')closeM();
+});
+var bar=document.querySelector('.progress');
+function prog(){var d=document.documentElement;var s=d.scrollTop/((d.scrollHeight-d.clientHeight)||1);bar.style.transform='scaleX('+Math.min(1,Math.max(0,s))+')';}
+window.addEventListener('scroll',prog,{passive:true});prog();
+var split=function(node){[].slice.call(node.childNodes).forEach(function(n){
+if(n.nodeType===3){var f=document.createDocumentFragment();
+n.textContent.split(/(\s+)/).forEach(function(t){if(!t)return;
+if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(' '));return;}
+var w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');
+t.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c;w.appendChild(s);});
+f.appendChild(w);});
+n.parentNode.replaceChild(f,n);}
+else if(n.nodeType===1){split(n);}});};
+var h1=document.querySelector('.hero h1');
+if(h1){h1.setAttribute('aria-label',h1.textContent.replace(/\s+/g,' ').trim());split(h1);}
+if(fine&&!RM){
+document.querySelectorAll('.card').forEach(function(c){
+c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+c.style.transform='perspective(800px) rotateX('+(-y*6)+'deg) rotateY('+(x*6)+'deg) translateY(-4px)';});
+c.addEventListener('mouseleave',function(){c.style.transform='';});});
+document.querySelectorAll('.btn').forEach(function(b){
+b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();
+b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)';});
+b.addEventListener('mouseleave',function(){b.style.transform='';});});
+}
+if(!RM&&'IntersectionObserver' in window){
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var t=en.target;t.classList.add('in');io.unobserve(t);
+setTimeout(function(){t.classList.remove('rv','in');t.style.transitionDelay='';},950);}});},{threshold:.12});
+document.querySelectorAll('.card,.block,.about .intro,.about h2,.work h2,.contact h2,.contact .links').forEach(function(el,i){
+el.classList.add('rv');el.style.transitionDelay=((i%4)*70)+'ms';io.observe(el);});
+}
+})();
+</script>
+
+
+</body>
+</html>
